@@ -1,0 +1,68 @@
+[package]
+name = "big_space"
+version = "0.7.0"
+edition = "2021"
+description = "A floating origin plugin for bevy"
+license = "MIT OR Apache-2.0"
+keywords = ["bevy", "floating-origin", "large-scale", "space"]
+repository = "https://github.com/aevyrie/big_space"
+documentation = "https://docs.rs/crate/big_space/latest"
+
+[dependencies]
+
+[dev-dependencies]
+bevy = { version = "0.14.0", default-features = false, features = [
+    "bevy_scene",
+    "bevy_gltf",
+    "bevy_winit",
+    "default_font",
+    "bevy_ui",
+    "bevy_pbr",
+    "bevy_gizmos",
+    "x11",
+    "tonemapping_luts",
+    "multi_threaded",
+] }
+# bevy-inspector-egui = "0.24"
+rand = "0.8.5"
+
+[features]
+default = ["debug", "camera", "bevy_render"]
+debug = ["bevy_gizmos", "bevy_color"]
+camera = ["bevy_render", "bevy_time", "bevy_input"]
+
+[[example]]
+name = "demo"
+path = "examples/demo.rs"
+required-features = ["default"]
+doc-scrape-examples = true
+
+[[example]]
+name = "debug"
+path = "examples/debug.rs"
+required-features = ["default"]
+doc-scrape-examples = true
+
+[[example]]
+name = "error"
+path = "examples/error.rs"
+required-features = ["default"]
+doc-scrape-examples = true
+
+[[example]]
+name = "error_child"
+path = "examples/error_child.rs"
+required-features = ["default"]
+doc-scrape-examples = true
+
+[[example]]
+name = "planets"
+path = "examples/planets.rs"
+required-features = ["default"]
+doc-scrape-examples = true
+
+[[example]]
+name = "split_screen"
+path = "examples/split_screen.rs"
+required-features = ["default"]
+doc-scrape-examples = true
